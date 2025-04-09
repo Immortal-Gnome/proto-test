@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package data;
 
-import "google/protobuf/struct.proto";
-
 option go_package = "/data";
 
 message Data {
@@ -11,20 +9,20 @@ message Data {
     int64 timestamp = 2;
 }
 
-message Color {
-    float32 r = 1;
-    float32 g = 2;
-    float32 b = 3;
+message Grid_Data {
+    repeated Tile_Data tiles = 1;
 }
 
-message Tile {
-    google.protobuf.Struct color = 1;
+
+message Tile_Data {
+    double r = 1;
+    double g = 2;
+    double b = 3;
+    int32 x = 4;
+    int32 y = 5;
 }
 
-message Grid {
-    google.protobuf.Struct tile = 1;
-}
 
-message Request{
-    int32 type
+message Request_Data {
+    int32 type = 1;
 }
